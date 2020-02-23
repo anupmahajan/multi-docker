@@ -10,12 +10,12 @@ script:
     - docker run -t anupmahajan/react-test npm run test -- --coverage
 
 after_success:
-    - docker build -t amahadocker/multi-client ./client
-    - docker build -t amahadocker/multi-nginx  ./nginx
-    - docker build -t amahadocker/multi-server ./server
-    - docker build -t amahadocker/multi-worker ./worker
+    - docker build -t anupmahajan/multi-client ./client
+    - docker build -t anupmahajan/multi-nginx  ./nginx
+    - docker build -t anupmahajan/multi-server ./server
+    - docker build -t anupmahajan/multi-worker ./worker
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push amahadocker/multi-client
-    - docker push amahadocker/multi-nginx
-    - docker push amahadocker/multi-server
-    - docker push amahadocker/multi-worker
+    - docker push anupmahajan/multi-client
+    - docker push anupmahajan/multi-nginx
+    - docker push anupmahajan/multi-server
+    - docker push anupmahajan/multi-worker
