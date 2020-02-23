@@ -10,7 +10,7 @@ script:
 
 after_success:
     - docker build -t anupmahajan/multi-client ./client
-    - docker build -t anupmahajan/muti-nginx   ./nginx
+    - docker build -t anupmahajan/multi-nginx  ./nginx
     - docker build -t anupmahajan/multi-server ./server
     - docker build -t anupmahajan/multi-worker ./worker
 
