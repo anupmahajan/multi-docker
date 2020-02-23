@@ -14,7 +14,7 @@ after_success:
     - docker build -t amahadocker/multi-nginx  ./nginx
     - docker build -t amahadocker/multi-server ./server
     - docker build -t amahadocker/multi-worker ./worker
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     - docker push amahadocker/multi-client
     - docker push amahadocker/multi-nginx
     - docker push amahadocker/multi-server
