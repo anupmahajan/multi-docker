@@ -1,4 +1,5 @@
 sudo: required
+
 services:
     - docker
 
@@ -13,12 +14,8 @@ after_success:
     - docker build -t anupmahajan/multi-nginx  ./nginx
     - docker build -t anupmahajan/multi-server ./server
     - docker build -t anupmahajan/multi-worker ./worker
-
-# Login in to the docker CLI
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password stdin
-
-# Take those images and push to docker hub
-- docker push anupmahajan/multi-client
-- docker push anupmahajan/multi-nginx
-- docker push anupmahajan/multi-server
-- docker push anupmahajan/multi-worker
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password stdin
+    - docker push anupmahajan/multi-client
+    - docker push anupmahajan/multi-nginx
+    - docker push anupmahajan/multi-server
+    - docker push anupmahajan/multi-worker
